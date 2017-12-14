@@ -16,7 +16,7 @@ const Nav = () => (
       <i className="fa fa-bars"></i>
       <div className="text-menu">
         <div>
-          <a href="/"className="menuOption">Join Now</a>
+          <a href="/JoinNow"className="menuOption">Join Now</a>
         </div>
         <span className="slash">/</span>
 

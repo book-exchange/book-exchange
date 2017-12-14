@@ -9,6 +9,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import  Nav from "../../components/Nav";
+import  Footer from "../../components/Footer";
 
 class JoinNow extends Component {
   state = {
@@ -76,6 +77,7 @@ class JoinNow extends Component {
             </form>
           </Col>
         </Row>
+        <Footer />
       </Container>
     );
   }
