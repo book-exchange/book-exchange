@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Articles from "./pages/Articles";
-import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import JoinNow from "./pages/JoinNow";
 import Login from "./pages/Login";

@@ -1,6 +1,9 @@
 import React from "react";
 import "./Landing.css";
-// import Logo from '../Logo/Logo';
+import Logo from '../Logo/Logo';
+
+
+
 
 
 const Landing = () => (
