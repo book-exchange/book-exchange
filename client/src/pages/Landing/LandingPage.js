@@ -10,6 +10,7 @@ import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import  Nav from "../../components/Nav";
 import  Landing from "../../components/Landing";
+import  Footer from "../../components/Footer";
 
 class LandingPage extends Component {
 
@@ -19,6 +20,7 @@ class LandingPage extends Component {
       <Container fluid>
         <Nav/>
         <Landing/>
+        <Footer/>
       </Container>
     );
   }
