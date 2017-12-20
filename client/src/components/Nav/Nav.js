@@ -3,39 +3,58 @@ import "./Nav.css";
 import Logo from '../Logo/Logo';
 
 
+class Nav extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
 
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-const Nav = (props) => (
-<nav>
-  <div className="row">
-    <div className="quarter">
-        <a href="/"><Logo/></a>
-    </div>
-    <div className="rest">
-      <i className="fa fa-bars"></i>
-      <div className="text-menu">
-        <div>
-          <a href="/JoinNow"className="menuOption">{props.link1}</a>
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+render(){
+  return (
+    <nav>
+      <div className="row">
+        <div className="quarter">
+            <a href="/"><Logo/></a>
         </div>
-        <span className="slash">/</span>
+        <div className="rest">
+          <i onClick={this.handleClick} className="fa fa-bars"></i>
+          <div className={this.state.isToggleOn ? "text-menu" : "menu-appear"}>
+            <div>
+              <a href="/JoinNow"className="menuOption">{this.props.link1}</a>
+            </div>
+            <span className="slash">/</span>
 
-        <div>
-          <a href="/AboutUS" className = "menuOption">{props.link2}</a>
-          <ul>
-            <li><a href="/Contact">Contact</a></li>
-            <li><a href="/FAQs">FAQs</a></li>
-          </ul>
-        </div>
+            <div>
+              <a href="/AboutUS" className="menuOption">{this.props.link2}</a>
+              <ul>
+                <li><a href="/Contact">Contact</a></li>
+                <li><a href="/FAQs">FAQs</a></li>
+              </ul>
+            </div>
 
-        <span className="slash">/</span>
+            <span className="slash">/</span>
 
-        <div>
-          <a href="/Login" className = "menuOption">{props.link3}</a>
+            <div>
+              <a href="/Login" className = "menuOption">{this.props.link3}</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</nav>
-);
+    </nav>
+    );
+
+};
+
+
+};
 export default Nav;
