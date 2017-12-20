@@ -10,6 +10,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
 import  Nav from "../../components/Nav";
 import  Footer from "../../components/Footer";
+import  Card from "../../components/Card";
 
 class JoinNow extends Component {
   state = {
@@ -45,38 +46,42 @@ class JoinNow extends Component {
       <Container fluid>
         <Nav link1="Join Now" link2="About Us" link3="Login"/>
         <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>Join Now</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.firstname}
-                onChange={this.handleInputChange}
-                name="firstname"
-                placeholder="First Name"
-              />
-              <Input
-                value={this.state.lastname}
-                onChange={this.handleInputChange}
-                name="lastname"
-                placeholder="Last Name"
-              />
-              <Input
-                value={this.state.city}
-                onChange={this.handleInputChange}
-                name="city"
-                placeholder="City"
-              />
-              <FormBtn
-                disabled={!(this.state.firstname && this.state.lastname && this.state.city)}
-                // onClick={this.handleFormSubmit}
-                href='/articles'
-              >
-                Create Account
-              </FormBtn>
-            </form>
+          <Col size="md-4"/>
+          <Col size="md-4">
+            <Card>
+              <Jumbotron>
+                <h1>Join Now</h1>
+              </Jumbotron>
+              <form>
+                <Input
+                  value={this.state.firstname}
+                  onChange={this.handleInputChange}
+                  name="firstname"
+                  placeholder="First Name"
+                />
+                <Input
+                  value={this.state.lastname}
+                  onChange={this.handleInputChange}
+                  name="lastname"
+                  placeholder="Last Name"
+                />
+                <Input
+                  value={this.state.city}
+                  onChange={this.handleInputChange}
+                  name="city"
+                  placeholder="City"
+                />
+                <FormBtn
+                  disabled={!(this.state.firstname && this.state.lastname && this.state.city)}
+                  // onClick={this.handleFormSubmit}
+                  href='/articles'
+                >
+                  Create Account
+                </FormBtn>
+              </form>
+            </Card>
           </Col>
+          <Col size="md-4"/>
         </Row>
         <Footer />
       </Container>

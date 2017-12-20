@@ -10,6 +10,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
 import  Nav from "../../components/Nav";
 import  Footer from "../../components/Footer";
+import  Card from "../../components/Card";
 
 class JoinNow extends Component {
   state = {
@@ -44,31 +45,35 @@ class JoinNow extends Component {
       <Container fluid>
         <Nav link1="Join Now" link2="About Us" link3="Login"/>
         <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>Login</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="E-mail"
-              />
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="Password"
-              />
-              <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Create Account
-              </FormBtn>
-            </form>
+          <Col size="md-4"/>
+          <Col size="md-4">
+            <Card>
+              <Jumbotron>
+                <h1>Login</h1>
+              </Jumbotron>
+              <form>
+                <Input
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  name="email"
+                  placeholder="E-mail"
+                />
+                <Input
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password"
+                  placeholder="Password"
+                />
+                <FormBtn
+                  disabled={!(this.state.author && this.state.title)}
+                  onClick={this.handleFormSubmit}
+                >
+                  Create Account
+                </FormBtn>
+              </form>
+            </Card>
           </Col>
+          <Col size="md-4"/>
         </Row>
         <Footer />
       </Container>
