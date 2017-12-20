@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import SaveBtn from "../../components/SaveBtn";
-import LoadBtn from "../../components/LoadBtn";
+// import DeleteBtn from "../../components/DeleteBtn";
+// import SaveBtn from "../../components/SaveBtn";
+// import LoadBtn from "../../components/LoadBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+// import { List, ListItem } from "../../components/List";
+import { Input, FormBtn } from "../../components/Form";
 import  Nav from "../../components/Nav";
 import  Footer from "../../components/Footer";
 
@@ -43,7 +43,7 @@ class JoinNow extends Component {
   render() {
     return (
       <Container fluid>
-        <Nav/>
+        <Nav link1="Join Now" link2="About Us" link3="Login"/>
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -69,8 +69,9 @@ class JoinNow extends Component {
                 placeholder="City"
               />
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
+                disabled={!(this.state.firstname && this.state.lastname && this.state.city)}
+                // onClick={this.handleFormSubmit}
+                href='/articles'
               >
                 Create Account
               </FormBtn>

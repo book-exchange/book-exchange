@@ -7,7 +7,7 @@ import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+// import { Input, TextArea, FormBtn } from "../../components/Form";
 import Nav from "../../components/Nav";
 
 class Articles extends Component {
@@ -95,7 +95,7 @@ class Articles extends Component {
   render() {
     return (
       <Container fluid>
-        <Nav/>
+        <Nav link1="Join Now" link2="About Us" link3="Login"/>
         <Row>
           <Col size="md-6">
             <Jumbotron>

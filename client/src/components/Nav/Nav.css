@@ -211,9 +211,13 @@ label{
     }
     
     nav .menu-appear {
-        position: absolute;
-
-        top: 15vh;
+        display: block;
+        margin: auto;
+        width: 50%;
+        opacity: .9;
+        background-color: white;
+        text-align: center;
+        z-index: 1;
         -webkit-transition: 0.5s;
         transition: 0.5s;
     }
