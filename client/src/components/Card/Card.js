@@ -7,7 +7,7 @@ import "./Card.css";
 
 
 const Card = ({ children }) => (
-<div class="card card-4">
+<div class="card card-4 list-overflow-container">
 	{children}
 </div>
 );
