@@ -18,13 +18,11 @@ class LandingPage extends Component {
   render() {
     return (
       <Container fluid>
-      	<Nav />
       	<Row>
-      	<Col size="md-6">
+      	<Col size="md-12">
 		  <Landing/>
 		</Col>
 	    </Row>
-	    <Footer/>
       </Container>
     );
   }

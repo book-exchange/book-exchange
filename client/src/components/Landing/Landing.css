@@ -1,60 +1,58 @@
-  
-  
-  .full-screen {
-/*    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;*/
-    position: relative;
-    transform: translateY(60%);
-    background: url(https://i.imgur.com/wCG2csZ.png);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    
-    flex-direction: column;
-    -webkit-align-items: center;
-        -webkit-justify-content: center;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+.styles {
+  background: #000;
+  font-family: "Nico Moji", sans-serif;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
 
+.column {
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+  .info {
+    margin-bottom: 10%;
   }
-  
-  h1 {
-    color: #42c8f4;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
-    font-size: 4em;
-    letter-spacing: -2px;
-    text-align: center;
-    text-shadow: 1px 2px 1px rgba(0, 0, 0, .6);
+  h2 {
+    font-size: 3rem;
+    font-family: "Nico Moji", sans-serif;
+    color: white;
   }
-  
-  
-  .button-line {
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: transparent;
-    border: 1px solid black;
-    color: black;
-    text-align: center;
-    font-size: 1.4em;
-    opacity: .8;
-    padding: 1% 5% 1% 5%;
+  p {
+    font-size: 1.5rem;
+    font-family: "Nico Moji", sans-serif;
+    color: white;
+  }
+  .crumb {
+    font-size: 2rem;
+    background: #0bd;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
     text-decoration: none;
-    transition: all .5s ease;
-    margin: 0 auto;
-    display: block;
-    width: 100px;
+    display: inline-block;
+    margin-top: 2%;
+    font-family: "Nico Moji", sans-serif;
   }
-  
-  .button-line:hover {
-    opacity: 1;
+  .crumb:hover {
+    background: #0090aa;
   }
+.cat1 {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/GABRIEL_VELLA_vs_ROMINHO_51.jpg/1200px-GABRIEL_VELLA_vs_ROMINHO_51.jpg) no-repeat top center;
+  background-size: cover;
+  color: rgba(255,255,255,.7);
+}
+.cat2 {
+  background: url(http://www.bjj.org/wp-content/uploads/2017/03/Brazilian-Jiu-Jitsu.jpg) no-repeat top center;
+  background-size: cover;
+  color: rgba(0,0,0,.7);
+}
+
+@media all and (min-width: 500px) {
+  .wrapper {
+    display: flex;
+  }
+}
