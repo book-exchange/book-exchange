@@ -13,7 +13,7 @@ const Landing = () => (
   					<div className="column cat1">
     					<div className="info">
       						<h2>Open Mats Await</h2>
-      						<p>(Hello)</p>
+      						<p>(Don't Be Scared)</p>
       						<a className="crumb" href="/joinnow">Join Now</a>
     					</div>
   					</div>
@@ -30,9 +30,7 @@ const Landing = () => (
 	<Row>
 		<Col size="xs-4">
 			<Card>
-				<Jumbotron>
-	                <h1>Step 1: Sign</h1>
-	             </Jumbotron>
+				<h2>Step 1: Sign Up</h2>
 			</Card>
 		</Col>
 		<Col size="xs-4">

@@ -1,6 +1,6 @@
 .styles {
   background: #000;
-  font-family: "Nico Moji", sans-serif;
+  font-family: 'Bangers', cursive;
   margin-bottom: 5%;
   margin-top: 2%;
 }
@@ -17,13 +17,14 @@
     margin-bottom: 10%;
   }
   h2 {
-    font-size: 3rem;
-    font-family: "Nico Moji", sans-serif;
+    font-size: 4rem;
+    font-family: 'Bangers', cursive;
     color: white;
+    text-shadow: 2px 2px rgba(0,0,0,0.22);
   }
   p {
-    font-size: 1.5rem;
-    font-family: "Nico Moji", sans-serif;
+    font-size: 1.7rem;
+    font-family: 'Bangers', cursive;
     color: white;
   }
   .crumb {
@@ -35,7 +36,7 @@
     text-decoration: none;
     display: inline-block;
     margin-top: 2%;
-    font-family: "Nico Moji", sans-serif;
+    font-family: 'Bangers', cursive;
   }
   .crumb:hover {
     background: #0090aa;
