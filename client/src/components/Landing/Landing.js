@@ -4,7 +4,11 @@ import Logo from '../Logo/Logo';
 import { Col, Row, Container } from "../Grid";
 import  Card from "../Card";
 import Jumbotron from "../Jumbotron";
-import styled from 'styled-components';
+
+
+const h1Style = {
+	fontSize: '5vh',
+};
 
 
 const Landing = () => (
@@ -33,17 +37,17 @@ const Landing = () => (
 	<Row>
 		<Col size="xs-4">
 			<Card>
-				<h1>Step 1: Join Now or Login</h1>
+				<h1 style={h1Style}>Step 1: Join Now or Login</h1>
 			</Card>
 		</Col>
 		<Col size="xs-4">
 			<Card>
-				<h1>Step 2: Find Open Mats</h1>
+				<h1 style={h1Style}>Step 2: Find Open Mats</h1>
 			</Card>
 		</Col>
 		<Col size="xs-4">
 			<Card>
-				<h1>Step 3: Attend Open Mats</h1>
+				<h1 style={h1Style}>Step 3: Attend Open Mats</h1>
 			</Card>
 		</Col>
 	</Row>

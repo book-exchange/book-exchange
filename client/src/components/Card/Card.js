@@ -3,10 +3,7 @@ import "./Card.css";
 
 
 
-
-
-
-const Card = ({ children }) => (
+const Card = ({ children }, props) => (
 <div class="card-4 list-overflow-container">
 	{children}
 </div>
