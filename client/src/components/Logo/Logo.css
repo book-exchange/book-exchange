@@ -1,3 +1,9 @@
+.landingLogo {
+    background-color: white;
+    padding: .7% 0% 0% 0%;
+    height: 17vh;
+}
+
 .Logo {
     background-color: white;
     padding: 8px;
@@ -6,6 +12,4 @@
     border-radius: 5px;
 }
 
-.Logo img {
-    height: 100%;
-}
+

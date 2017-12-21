@@ -4,12 +4,14 @@ import Logo from '../Logo/Logo';
 import { Col, Row, Container } from "../Grid";
 import  Card from "../Card";
 import Jumbotron from "../Jumbotron";
+import styled from 'styled-components';
+
 
 const Landing = () => (
 <Container>
 	<Row>
 		<Col size="xs-12">
-				<Logo/>
+				<Logo style='landingLogo'/>
 				<div className="wrapper">
   					<div className="column cat1">
     					<div className="info">
