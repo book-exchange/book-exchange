@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // import Jumbotron from "../../components/Jumbotron";
 // import API from "../../utils/API";
 // import { Link } from "react-router-dom";
-import { Container } from "../../components/Grid";
+import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 import  Nav from "../../components/Nav";
@@ -18,9 +18,11 @@ class LandingPage extends Component {
   render() {
     return (
       <Container fluid>
-        <Nav />
-        <Landing/>
-        <Footer/>
+      	<Row>
+      	<Col size="md-12">
+		  <Landing/>
+		</Col>
+	    </Row>
       </Container>
     );
   }

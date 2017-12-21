@@ -1,3 +1,17 @@
+.landingLogo {
+    background-color: transparent;
+    padding: .7% 0% 0% 0%;
+    height: 17vh;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+          transition:         transform .8s ease-in-out;
+}
+
+.landingLogo:hover {
+	-webkit-transform: rotate(720deg);
+          transform: rotate(720deg);
+	
+}
+
 .Logo {
     background-color: white;
     padding: 8px;
@@ -6,6 +20,4 @@
     border-radius: 5px;
 }
 
-.Logo img {
-    height: 100%;
-}
+

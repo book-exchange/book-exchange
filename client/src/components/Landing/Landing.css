@@ -1,100 +1,66 @@
-  body {
-    background: linear-gradient(253deg, #0cc898, #1797d2, #864fe1);
-    background-size: 300% 300%;
-    -webkit-animation: Background 25s ease infinite;
-    -moz-animation: Background 25s ease infinite;
-    animation: Background 25s ease infinite;
+.wrapper {
+  background: #000;
+  font-family: 'Bangers', cursive;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.column {
+  height: 70vh;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+  .info {
+    margin-bottom: 10%;
   }
-  
-  @-webkit-keyframes Background {
-    0% {
-      background-position: 0% 50%
-    }
-    50% {
-      background-position: 100% 50%
-    }
-    100% {
-      background-position: 0% 50%
-    }
-  }
-  
-  @-moz-keyframes Background {
-    0% {
-      background-position: 0% 50%
-    }
-    50% {
-      background-position: 100% 50%
-    }
-    100% {
-      background-position: 0% 50%
-    }
-  }
-  
-  @keyframes Background {
-    0% {
-      background-position: 0% 50%
-    }
-    50% {
-      background-position: 100% 50%
-    }
-    100% {
-      background-position: 0% 50%
-    }
-  }
-  
-  .full-screen {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: url(https://i.imgur.com/wCG2csZ.png);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    /* works with row or column */
-    
-    flex-direction: column;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
   h1 {
-    color: #fff;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
-    font-size: 4em;
-    letter-spacing: -2px;
-    text-align: center;
-    text-shadow: 1px 2px 1px rgba(0, 0, 0, .6);
+    font-size: 4rem;
+    font-family: 'Bangers', cursive;
+    color: black;
+    text-shadow: 8px 8px rgba(0,0,0,0.22);
   }
-  
-  
-  .button-line {
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    text-align: center;
-    font-size: 1.4em;
-    opacity: .8;
-    padding: 1% 5% 1% 5%;
+  h2 {
+    font-size: 4rem;
+    font-family: 'Bangers', cursive;
+    color: white;
+    text-shadow: 12px 12px rgba(0,0,0,0.22);
+  }
+  p {
+    font-size: 1.7rem;
+    font-family: 'Bangers', cursive;
+    color: white;
+    text-shadow: 8px 8px rgba(0,0,0,0.22);
+  }
+  .crumb {
+    font-size: 2rem;
+    background: #0bd;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
     text-decoration: none;
-    transition: all .5s ease;
-    margin: 0 auto;
-    display: block;
-    width: 100px;
+    display: inline-block;
+    margin-top: 2%;
+    font-family: 'Bangers', cursive;
   }
-  
-  .button-line:hover {
-    opacity: 1;
+  .crumb:hover {
+    background: #0090aa;
   }
+.cat1 {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/GABRIEL_VELLA_vs_ROMINHO_51.jpg/1200px-GABRIEL_VELLA_vs_ROMINHO_51.jpg) no-repeat top center;
+  background-size: cover;
+  color: rgba(255,255,255,.7);
+}
+.cat2 {
+  background: url(http://www.bjj.org/wp-content/uploads/2017/03/Brazilian-Jiu-Jitsu.jpg) no-repeat top center;
+  background-size: cover;
+  color: rgba(0,0,0,.7);
+}
+
+@media all and (min-width: 500px) {
+  .wrapper {
+    display: flex;
+  }
+}
