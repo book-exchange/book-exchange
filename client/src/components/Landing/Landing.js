@@ -1,6 +1,6 @@
 import React from "react";
 import "./Landing.css";
-// import Logo from '../Logo/Logo';
+import Logo from '../Logo/Logo';
 import { Col, Row, Container } from "../Grid";
 import  Card from "../Card";
 import Jumbotron from "../Jumbotron";
@@ -9,7 +9,8 @@ const Landing = () => (
 <Container>
 	<Row>
 		<Col size="xs-12">
-				<div className="styles wrapper">
+				<Logo/>
+				<div className="wrapper">
   					<div className="column cat1">
     					<div className="info">
       						<h2>Open Mats Await</h2>
@@ -30,21 +31,17 @@ const Landing = () => (
 	<Row>
 		<Col size="xs-4">
 			<Card>
-				<h2>Step 1: Sign Up</h2>
+				<h1>Step 1: Join Now or Login</h1>
 			</Card>
 		</Col>
 		<Col size="xs-4">
 			<Card>
-				<Jumbotron>
-	                <h1>Step 2: Attend</h1>
-	             </Jumbotron>
+				<h1>Step 2: Find Open Mats</h1>
 			</Card>
 		</Col>
 		<Col size="xs-4">
 			<Card>
-				<Jumbotron>
-	                <h1>Step 3: Go Roll</h1>
-	             </Jumbotron>
+				<h1>Step 3: Attend Open Mats</h1>
 			</Card>
 		</Col>
 	</Row>
