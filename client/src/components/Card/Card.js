@@ -4,7 +4,7 @@ import "./Card.css";
 
 
 const Card = ({ children }, props) => (
-<div class="card-4 list-overflow-container">
+<div className="card-4 list-overflow-container">
 	{children}
 </div>
 );

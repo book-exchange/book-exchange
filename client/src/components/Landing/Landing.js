@@ -3,7 +3,7 @@ import "./Landing.css";
 import Logo from '../Logo/Logo';
 import { Col, Row, Container } from "../Grid";
 import  Card from "../Card";
-import Jumbotron from "../Jumbotron";
+// import Jumbotron from "../Jumbotron";
 
 
 const h1Style = {

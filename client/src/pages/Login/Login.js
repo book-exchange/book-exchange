@@ -12,7 +12,7 @@ import  Nav from "../../components/Nav";
 import  Footer from "../../components/Footer";
 import  Card from "../../components/Card";
 
-class JoinNow extends Component {
+class Login extends Component {
   state = {
     email: "",
     password: ""
@@ -48,9 +48,7 @@ class JoinNow extends Component {
           <Col size="md-4"/>
           <Col size="md-4">
             <Card>
-              <Jumbotron>
-                <h1>Login</h1>
-              </Jumbotron>
+              <h1>Login</h1>
               <form>
                 <Input
                   value={this.state.email}
@@ -68,17 +66,17 @@ class JoinNow extends Component {
                   disabled={!(this.state.author && this.state.title)}
                   onClick={this.handleFormSubmit}
                 >
-                  Create Account
+                  Login
                 </FormBtn>
               </form>
             </Card>
           </Col>
           <Col size="md-4"/>
         </Row>
-        <Footer />
+
       </Container>
     );
   }
 }
 
-export default JoinNow;
+export default Login;
