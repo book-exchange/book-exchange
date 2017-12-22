@@ -3,10 +3,10 @@ import "./FormBtn.css";
 import { Link } from "react-router-dom";
 
 
-export const FormBtn = props =>
+export const FormBtn = ({ children, props }) =>
   <Link to="/articles">
 	  <button {...props} className="button button2">
-	    Create New Account
+	    {children}
 	  </button>
 </Link>
   ;

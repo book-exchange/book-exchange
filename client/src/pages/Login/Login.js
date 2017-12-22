@@ -48,9 +48,7 @@ class Login extends Component {
           <Col size="md-4"/>
           <Col size="md-4">
             <Card>
-              <Jumbotron>
-                <h1>Login</h1>
-              </Jumbotron>
+              <h1>Login</h1>
               <form>
                 <Input
                   value={this.state.email}
@@ -68,7 +66,7 @@ class Login extends Component {
                   disabled={!(this.state.author && this.state.title)}
                   onClick={this.handleFormSubmit}
                 >
-                  Create Account
+                  Login
                 </FormBtn>
               </form>
             </Card>

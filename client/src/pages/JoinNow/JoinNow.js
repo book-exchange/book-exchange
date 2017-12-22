@@ -115,7 +115,9 @@ class JoinNow extends Component {
                   // disabled={!(this.state.firstname && this.state.lastname && this.state.city)}
                   onClick={() => this.saveNewUser(this.state.firstname, this.state.lastname, this.state.city, this.state.state, this.state.zip, this.state.belt, this.state.email, this.state.password)}
                   // to="/articles"     
-                />
+                >
+                  Create New Account
+                </FormBtn>
               </form>
             </Card>
           </Col>
