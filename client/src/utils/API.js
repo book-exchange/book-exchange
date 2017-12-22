@@ -23,5 +23,8 @@ export default {
   scrapeArticles: function() {
     return axios.get("/api/scrape");
   },
+  saveuser: function(userData) {
+    return axios.post("/api/user", userData);
+  },
 
 };

@@ -12,7 +12,7 @@ import  Nav from "../../components/Nav";
 import  Footer from "../../components/Footer";
 import  Card from "../../components/Card";
 
-class JoinNow extends Component {
+class Login extends Component {
   state = {
     email: "",
     password: ""
@@ -75,10 +75,10 @@ class JoinNow extends Component {
           </Col>
           <Col size="md-4"/>
         </Row>
-        <Footer />
+
       </Container>
     );
   }
 }
 
-export default JoinNow;
+export default Login;

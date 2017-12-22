@@ -1,7 +1,7 @@
 import React from 'react';
 
 import orLogo from '../../assets/images/open-rolls.png';
-import classes from './Logo.css';
+import './Logo.css';
 
 const logo = (props) => (
     <div>
