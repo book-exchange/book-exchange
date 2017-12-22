@@ -7,8 +7,19 @@ import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-// import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Input, FormBtn } from "../../components/Form";
 import Nav from "../../components/Nav";
+import  Card from "../../components/Card";
+
+
+const h1Style = {
+  fontSize: '3vh',
+};
+
+const h1Style2 = {
+  fontSize: '5vh',
+};
+
 
 class Articles extends Component {
   state = {
@@ -97,11 +108,34 @@ class Articles extends Component {
       <Container fluid>
         <Nav link1="Join Now" link2="About Us" link3="Login"/>
         <Row>
+          <Col size="xs-8">
+            <Card>
+              <h1 style={h1Style2}>Open Mats in your Area</h1>
+              {this.state.articles.length ? (
+              <List>
+                <ListItem>
+                </ListItem>
+              </List>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+            </Card>
+          </Col>
+          <Col size="xs-4">
+            <Card>
+              <h1 style={h1Style2}>Own A Gym?</h1>
+              <FormBtn>
+                Host An Open Mat
+              </FormBtn>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
           <Col size="md-6">
-            <Jumbotron>
+            <Card>
               <h1>BJJ News Articles</h1>
               <LoadBtn onClick={() => this.loadarticles()} />
-            </Jumbotron>
+            </Card>
             {this.state.articles.length ? (
               <List>
                 {this.state.articles.map(article => (
@@ -123,10 +157,10 @@ class Articles extends Component {
           </Col>
         
           <Col size="md-6">
-            <Jumbotron>
+            <Card>
               <h1>Saved Articles</h1>
               <LoadBtn onClick={() => this.loadsavedarticles()} />
-            </Jumbotron>
+            </Card>
             {this.state.saved.length ? (
               <List>
                 {this.state.saved.map(article => (
