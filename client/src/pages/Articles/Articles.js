@@ -124,9 +124,7 @@ class Articles extends Component {
           <Col size="xs-4">
             <Card>
               <h1 style={h1Style2}>Own A Gym?</h1>
-              <FormBtn>
-                Host An Open Mat
-              </FormBtn>
+              <FormBtn title="Host an Open Mat"/>
             </Card>
           </Col>
         </Row>

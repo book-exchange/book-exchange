@@ -46,7 +46,7 @@ class JoinNow extends Component {
         email: this.state.email,
         password: this.state.password
       })
-        .then(<Link to="/articles"/>)
+        .then()
         .catch(err => console.log(err));
   }
 
@@ -114,10 +114,9 @@ class JoinNow extends Component {
                 <FormBtn
                   // disabled={!(this.state.firstname && this.state.lastname && this.state.city)}
                   onClick={() => this.saveNewUser(this.state.firstname, this.state.lastname, this.state.city, this.state.state, this.state.zip, this.state.belt, this.state.email, this.state.password)}
-                  // to="/articles"     
-                >
-                  Create New Account
-                </FormBtn>
+                  // to="/articles" 
+                  title="Create New Account"    
+                />
               </form>
             </Card>
           </Col>
