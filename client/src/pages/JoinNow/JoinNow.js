@@ -46,7 +46,7 @@ class JoinNow extends Component {
         email: this.state.email,
         password: this.state.password
       })
-        .then(<Link to="/articles"/>)
+        .then()
         .catch(err => console.log(err));
   }
 
