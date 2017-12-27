@@ -10,6 +10,7 @@ import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import Nav from "../../components/Nav";
 import  Card from "../../components/Card";
+import Modal from 'react-modal';
 
 
 const h1Style = {
@@ -20,11 +21,34 @@ const h1Style2 = {
   fontSize: '5vh',
 };
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    overflowY: "scroll",
+    padding: "2%"
+  }
+};
+
 
 class Articles extends Component {
+  constructor() {
+    super();
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+
   state = {
     articles: [],
-    saved:[]
+    saved:[],
+    modalIsOpen: false
   }
 
   componentWillMount() {
@@ -103,6 +127,22 @@ class Articles extends Component {
     }
   };
 
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+ 
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#f00';
+    this.subtitle.style.textAlign = "center";
+  }
+ 
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+
+
   render() {
     return (
       <Container fluid>
@@ -124,7 +164,97 @@ class Articles extends Component {
           <Col size="xs-4">
             <Card>
               <h1 style={h1Style2}>Own A Gym?</h1>
-              <FormBtn title="Host an Open Mat"/>
+              <FormBtn title="Host an Open Mat" onClick={this.openModal}/>
+              <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={customStyles}
+              contentLabel="Host Open Mat Modal"
+              >
+                <button onClick={this.closeModal}>X Close</button>
+                <h2 ref={subtitle => this.subtitle = subtitle}>Host and Open Mat</h2>
+                <div>
+                  <h3>Enter Gym Info Below:</h3>
+                </div>
+                <form>
+                  <Col size="xs-6">
+                    <Input
+                      value={this.state.instuctorFirstName}
+                      onChange={this.handleInputChange}
+                      name="firstname"
+                      placeholder="Instructor First Name"
+                    />
+                    <Input
+                      value={this.state.instructorLastName}
+                      onChange={this.handleInputChange}
+                      name="lastname"
+                      placeholder="Instructor Last Name"
+                    />
+                    <Input
+                      value={this.state.street}
+                      onChange={this.handleInputChange}
+                      name="street"
+                      placeholder="Street"
+                    />
+                    <Input
+                      value={this.state.city}
+                      onChange={this.handleInputChange}
+                      name="city"
+                      placeholder="City"
+                    />
+                    <Input
+                      value={this.state.state}
+                      onChange={this.handleInputChange}
+                      name="state"
+                      placeholder="State"
+                    />
+                    <Input
+                      value={this.state.zip}
+                      onChange={this.handleInputChange}
+                      name="zip"
+                      placeholder="Zip Code"
+                    />
+                  </Col>
+                  <Col size ="xs-6">
+                    <Input
+                      value={this.state.email}
+                      onChange={this.handleInputChange}
+                      name="email"
+                      placeholder="E-Mail"
+                      type="email"
+                    />
+                    <div>Enter the total amount of students at your gym:</div>
+                    <Input
+                      value={this.state.totalMembers}
+                      onChange={this.handleInputChange}
+                      name="memberCount"
+                      placeholder="Total Gym Membership"
+                    />
+                    <Input
+                      value={this.state.typeOfGym}
+                      onChange={this.handleInputChange}
+                      name="typeOfGym"
+                      placeholder="Gym Type"
+                    />
+                    <Input
+                      value={this.state.date}
+                      onChange={this.handleInputChange}
+                      name="openMatDate"
+                      placeholder="Open Mat Date"
+                      type="date"
+                    />
+                    <Input
+                      value={this.state.time}
+                      onChange={this.handleInputChange}
+                      name="typeOfGym"
+                      placeholder="Open Mat Time"
+                      type="time"
+                    />
+                  </Col>
+                  <FormBtn onClick={this.closeModal} title="Submit"/>
+                </form>
+              </Modal>
             </Card>
           </Col>
         </Row>
