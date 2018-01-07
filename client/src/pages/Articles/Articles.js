@@ -48,7 +48,18 @@ class Articles extends Component {
   state = {
     articles: [],
     saved:[],
-    modalIsOpen: false
+    modalIsOpen: false,
+    instuctorFirstName: "",
+    instructorLastName: "",
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    email: "",
+    totalMembers: "",
+    typeOfGym: "",
+    date: "",
+    time:""
   }
 
   componentWillMount() {
@@ -59,6 +70,26 @@ class Articles extends Component {
   //   this.loadarticles();
   //   this.loadsavedarticles();
   // }
+
+  saveNewEvent = (instuctorFirstName, instructorLastName, street, city, state, zip, email, totalMembers, typeOfGym, date, time) => {
+      API.saveevent({
+        //this save article should be changes to save user, new model needs created
+        instuctorFirstName: this.state. instuctorFirstName,
+        instructorLastName: this.state.instructorLastName,
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
+        email: this.state.email,
+        totalMembers: this.state.totalMembers,
+        typeOfGym: this.state.typeOfGym,
+        date: this.state.date,
+        time: this.state.time
+      })
+        .then(this.closeModal())
+        .catch(err => console.log(err));
+  }
+
 
   loadarticles = () => {
     API.getarticles()
@@ -252,7 +283,7 @@ class Articles extends Component {
                       type="time"
                     />
                   </Col>
-                  <FormBtn onClick={this.closeModal} title="Submit"/>
+                  <FormBtn onClick={() => this.saveNewEvent(this.state.instuctorFirstName, this.state.instructorLastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.totalMembers, this.state.typeOfGym, this.state.date, this.state.time)} title="Submit"/>
                 </form>
               </Modal>
             </Card>
