@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const articlesController = require("../../controllers/articlesController");
 
-// Matches with "/api/user"
+// Matches with "/api/event"
 router.route("/")
-  .post(articlesController.saveEvents);
+  .post(articlesController.saveEvent);
 
 module.exports = router;

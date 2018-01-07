@@ -60,7 +60,7 @@ var UserSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var User = mongoose.model("Event", UserSchema);
+var Event = mongoose.model("Event", UserSchema);
 
 
 // Export the Article model
