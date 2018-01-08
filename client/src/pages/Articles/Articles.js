@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import SaveBtn from "../../components/SaveBtn";
 import LoadBtn from "../../components/LoadBtn";
-import Jumbotron from "../../components/Jumbotron";
+// import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
@@ -13,9 +13,9 @@ import  Card from "../../components/Card";
 import Modal from 'react-modal';
 
 
-const h1Style = {
-  fontSize: '3vh',
-};
+// const h1Style = {
+//   fontSize: '3vh',
+// };
 
 const h1Style2 = {
   fontSize: '5vh',
@@ -48,7 +48,18 @@ class Articles extends Component {
   state = {
     articles: [],
     saved:[],
-    modalIsOpen: false
+    modalIsOpen: false,
+    instructorFirstName: "",
+    instructorLastName: "",
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    email: "",
+    totalMembers: "",
+    typeOfGym: "",
+    date: "",
+    time:""
   }
 
   componentWillMount() {
@@ -59,6 +70,26 @@ class Articles extends Component {
   //   this.loadarticles();
   //   this.loadsavedarticles();
   // }
+
+  saveNewEvent = (instructorFirstName, instructorLastName, street, city, state, zip, email, totalMembers, typeOfGym, date, time) => {
+      API.saveevent({
+        //this save article should be changes to save user, new model needs created
+        instructorFirstName: this.state. instructorFirstName,
+        instructorLastName: this.state.instructorLastName,
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
+        email: this.state.email,
+        totalMembers: this.state.totalMembers,
+        typeOfGym: this.state.typeOfGym,
+        date: this.state.date,
+        time: this.state.time
+      })
+        .then(this.closeModal())
+        .catch(err => console.log(err));
+  }
+
 
   loadarticles = () => {
     API.getarticles()
@@ -180,15 +211,15 @@ class Articles extends Component {
                 <form>
                   <Col size="xs-6">
                     <Input
-                      value={this.state.instuctorFirstName}
+                      value={this.state.instructorFirstName}
                       onChange={this.handleInputChange}
-                      name="firstname"
+                      name="instructorFirstName"
                       placeholder="Instructor First Name"
                     />
                     <Input
                       value={this.state.instructorLastName}
                       onChange={this.handleInputChange}
-                      name="lastname"
+                      name="instructorLastName"
                       placeholder="Instructor Last Name"
                     />
                     <Input
@@ -228,8 +259,9 @@ class Articles extends Component {
                     <Input
                       value={this.state.totalMembers}
                       onChange={this.handleInputChange}
-                      name="memberCount"
-                      placeholder="Total Gym Membership"
+                      name="totalMembers"
+                      placeholder="Total Members (Enter Number)"
+                      type="number"
                     />
                     <Input
                       value={this.state.typeOfGym}
@@ -240,19 +272,19 @@ class Articles extends Component {
                     <Input
                       value={this.state.date}
                       onChange={this.handleInputChange}
-                      name="openMatDate"
+                      name="date"
                       placeholder="Open Mat Date"
                       type="date"
                     />
                     <Input
                       value={this.state.time}
                       onChange={this.handleInputChange}
-                      name="typeOfGym"
+                      name="time"
                       placeholder="Open Mat Time"
                       type="time"
                     />
                   </Col>
-                  <FormBtn onClick={this.closeModal} title="Submit"/>
+                  <FormBtn onClick={() => this.saveNewEvent(this.state.instuctorFirstName, this.state.instructorLastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.totalMembers, this.state.typeOfGym, this.state.date, this.state.time)} title="Submit"/>
                 </form>
               </Modal>
             </Card>
