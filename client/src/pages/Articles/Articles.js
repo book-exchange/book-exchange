@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import SaveBtn from "../../components/SaveBtn";
 import LoadBtn from "../../components/LoadBtn";
-import Jumbotron from "../../components/Jumbotron";
+// import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
@@ -13,9 +13,9 @@ import  Card from "../../components/Card";
 import Modal from 'react-modal';
 
 
-const h1Style = {
-  fontSize: '3vh',
-};
+// const h1Style = {
+//   fontSize: '3vh',
+// };
 
 const h1Style2 = {
   fontSize: '5vh',
@@ -49,7 +49,7 @@ class Articles extends Component {
     articles: [],
     saved:[],
     modalIsOpen: false,
-    instuctorFirstName: "",
+    instructorFirstName: "",
     instructorLastName: "",
     street: "",
     city: "",
@@ -71,10 +71,10 @@ class Articles extends Component {
   //   this.loadsavedarticles();
   // }
 
-  saveNewEvent = (instuctorFirstName, instructorLastName, street, city, state, zip, email, totalMembers, typeOfGym, date, time) => {
+  saveNewEvent = (instructorFirstName, instructorLastName, street, city, state, zip, email, totalMembers, typeOfGym, date, time) => {
       API.saveevent({
         //this save article should be changes to save user, new model needs created
-        instuctorFirstName: this.state. instuctorFirstName,
+        instructorFirstName: this.state. instructorFirstName,
         instructorLastName: this.state.instructorLastName,
         street: this.state.street,
         city: this.state.city,
@@ -211,15 +211,15 @@ class Articles extends Component {
                 <form>
                   <Col size="xs-6">
                     <Input
-                      value={this.state.instuctorFirstName}
+                      value={this.state.instructorFirstName}
                       onChange={this.handleInputChange}
-                      name="firstname"
+                      name="instructorFirstName"
                       placeholder="Instructor First Name"
                     />
                     <Input
                       value={this.state.instructorLastName}
                       onChange={this.handleInputChange}
-                      name="lastname"
+                      name="instructorLastName"
                       placeholder="Instructor Last Name"
                     />
                     <Input
@@ -259,8 +259,9 @@ class Articles extends Component {
                     <Input
                       value={this.state.totalMembers}
                       onChange={this.handleInputChange}
-                      name="memberCount"
-                      placeholder="Total Gym Membership"
+                      name="totalMembers"
+                      placeholder="Total Members (Enter Number)"
+                      type="number"
                     />
                     <Input
                       value={this.state.typeOfGym}
@@ -271,14 +272,14 @@ class Articles extends Component {
                     <Input
                       value={this.state.date}
                       onChange={this.handleInputChange}
-                      name="openMatDate"
+                      name="date"
                       placeholder="Open Mat Date"
                       type="date"
                     />
                     <Input
                       value={this.state.time}
                       onChange={this.handleInputChange}
-                      name="typeOfGym"
+                      name="time"
                       placeholder="Open Mat Time"
                       type="time"
                     />
