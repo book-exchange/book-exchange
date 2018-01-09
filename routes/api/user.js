@@ -5,4 +5,10 @@ const articlesController = require("../../controllers/articlesController");
 router.route("/")
   .post(articlesController.saveUser);
 
+ router
+ 	.route("/:id")
+ 	.get(articlesController.findById)
+  	.put(articlesController.update)
+  	.delete(articlesController.remove);
+
 module.exports = router;

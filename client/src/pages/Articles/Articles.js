@@ -59,7 +59,8 @@ class Articles extends Component {
     totalMembers: "",
     typeOfGym: "",
     date: "",
-    time:""
+    time:"",
+    user:""
   }
 
   componentWillMount() {
@@ -95,6 +96,17 @@ class Articles extends Component {
     API.getarticles()
       .then(res =>
         this.setState({ articles: res.data },  
+        function () {
+        console.log(this.state);
+        })
+      )
+      .catch(err => console.log(err));
+  }
+//stuff i added
+  loadusers = () => {
+    API.getuser()
+      .then(res =>
+        this.setState({ user: res.data },  
         function () {
         console.log(this.state);
         })
@@ -157,6 +169,8 @@ class Articles extends Component {
         .catch(err => console.log(err));
     }
   };
+//more stuff i added
+  let token = sessionStorage.getItem("token");
 
   openModal() {
     this.setState({modalIsOpen: true});

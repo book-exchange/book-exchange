@@ -34,10 +34,23 @@ class JoinNow extends Component {
     });
   }
 
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   if (this.state.email && this.state.password) {
+  //     API.savearticle({
+  //       email: this.state.email,
+  //       password: this.state.password,
+  //       city: this.state.city
+  //     })
+  //       .then(res => this.loadarticles())
+  //       .catch(err => console.log(err));
+  //   }
+  // };
+
   saveNewUser = (firstname, lastname, city, state, zip, belt, email, password) => {
       API.saveuser({
         //this save article should be changes to save user, new model needs created
-        firstname: this.state.firstname,
+        firstname: this.state.firstname, 
         lastname: this.state.lastname,
         city: this.state.city,
         state: this.state.state,
