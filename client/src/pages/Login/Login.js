@@ -15,7 +15,8 @@ import  Card from "../../components/Card";
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    errorMessage: ""
   }
 
 
@@ -27,18 +28,44 @@ class Login extends Component {
     });
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.email && this.state.password) {
-      API.savearticle({
-        email: this.state.email,
-        password: this.state.password,
-        city: this.state.city
-      })
-        .then(res => this.loadarticles())
-        .catch(err => console.log(err));
+  setStateErrorMessage = (message) => {
+        this.setState({
+            errorMessage: message
+        });
+  }
+
+  login = (email, password) =>
+  {
+    const data = 
+    {
+      "email":this.state.email,
+      "password":this.state.password
     }
-  };
+
+    const This = this;
+
+    API.login(data).then(function(result)
+    {
+      console.log("this should be data" + result.data)
+
+      if(result.data[0].password === data.password)
+      {
+        console.log(result.data);
+        sessionStorage.setItem('token', result.data.email);
+        window.location='/articles'
+      }
+      else if (result.data[0].password !== data.password)
+      {
+        This.setStateErrorMessage('Wrong Password')
+        console.log(result.data + "Failed");
+
+      }
+      else if (!result.data)
+      {
+        console.log("email does not exist" + result.data)
+      }
+    })
+  }
 
   render() {
     return (
@@ -49,6 +76,7 @@ class Login extends Component {
           <Col size="md-4">
             <Card>
               <h1>Login</h1>
+              <h4>{this.state.errorMessage}</h4>
               <form>
                 <Input
                   value={this.state.email}
@@ -61,12 +89,13 @@ class Login extends Component {
                   onChange={this.handleInputChange}
                   name="password"
                   placeholder="Password"
+                  type="password"
                 />
-                <FormBtn
-                  disabled={!(this.state.author && this.state.title)}
-                  onClick={this.handleFormSubmit}
+                <a
+                  disabled={!(this.state.email && this.state.password)}
+                  onClick={() => this.login(this.state.email, this.state.password)}
                   title="Login"
-                />
+                >Login</a>
               </form>
             </Card>
           </Col>

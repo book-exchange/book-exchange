@@ -40,6 +40,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByEmail: function(req, res){
+    db.User
+      .find({email: req.params.email})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     var article = {};
     request("http://www.graciemag.com/en/", function(err, request, html)
