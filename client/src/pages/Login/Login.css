@@ -1,0 +1,24 @@
+.link {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    font-family: 'Bangers', cursive;
+    padding: 2%;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.link1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    margin:5% 5% 8% 5%;
+}
+
+.link1:hover {
+    background-color: #008CBA;
+    color: white;
+}

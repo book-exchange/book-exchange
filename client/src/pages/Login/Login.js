@@ -11,6 +11,7 @@ import { Input } from "../../components/Form";
 import  Nav from "../../components/Nav";
 // import  Footer from "../../components/Footer";
 import  Card from "../../components/Card";
+import "./Login.css";
 
 class Login extends Component {
   state = {
@@ -54,17 +55,17 @@ class Login extends Component {
 
       if(!result.data[0]){
         console.log("hello");
-        This.setStateErrorMessage('E-mail does not')
+        This.setStateErrorMessage('E-mail does not exist. Please check E-mail, or Join Nowa.')
       }
       else if(result.data[0].password === data.password)
       {
         console.log(result.data);
-        sessionStorage.setItem('token', result.data.email);
+        sessionStorage.setItem('token', result.data[0].email);
         window.location='/articles'
       }
       else if(result.data[0].password !== data.password)
       {
-        This.setStateErrorMessage('Wrong Password')
+        This.setStateErrorMessage('Wrong Password. Try agian')
         console.log(result.data + "Failed");
       }
     })
@@ -98,7 +99,10 @@ class Login extends Component {
                   disabled={!(this.state.email && this.state.password)}
                   onClick={() => this.login(this.state.email, this.state.password)}
                   title="Login"
+                  className="link link1"
                 >Login</a>
+                <br/>
+                <a className="link2" href="/joinnow">Click here to Join Now!</a>
               </form>
             </Card>
           </Col>
