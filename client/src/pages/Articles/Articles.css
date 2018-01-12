@@ -6,7 +6,7 @@
 
 .attending-count {
     font-family: 'Bangers', cursive;
-    font-size: 1.3em;
+    font-size: 1.8em;
 }
 
 .attending-title {
@@ -15,7 +15,17 @@
 }
 
 .address-style {
+    font-size: .4em;
 
+}
+
+.grow-hover{
+
+}
+.grow-hover:hover {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
 }
 
 .link3 {
@@ -41,4 +51,18 @@
 .link4:hover {
     background-color: #008CBA;
     color: white;
+}
+
+.simple-border{
+    border: 2px solid black;
+    margin: 1%;
+}
+
+.article-title{
+    font-family: 'Bangers', cursive;
+    font-size: 1em;
+}
+
+.article-info{
+    font-size: 2.3vh;
 }

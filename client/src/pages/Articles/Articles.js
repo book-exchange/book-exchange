@@ -179,8 +179,6 @@ class Articles extends Component {
     .catch(err => console.log(err));
   }
 
-
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -216,6 +214,7 @@ class Articles extends Component {
   }
 
 
+
   render() {
     return (
       <Container fluid>
@@ -231,28 +230,32 @@ class Articles extends Component {
                   <div className="row">
                     <div>
                       <h4 className="event-title">{event.typeOfGym}</h4>
-                      <h6>Open Mat Date: {event.date} Open Mat Time: {event.time}</h6>
+                      <h6 className="grow-hover">Open Mat Date: {event.date} Open Mat Time: {event.time}</h6>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-xs-6">
-                      <div>
+                      <div className="simple-border">
                         <h6 className="attending-title">Grapplers attending this Open Mat: </h6>
                         <h6 className="attending-count">{event.count}</h6>
                       </div>
                     </div>
                     <div className="col-xs-6">
-                      <h6>Instructor Name: {event.instructorFirstName} {event.instructorLastName}</h6>
-                      <h6>Current Gym Membership(*owner's estimate): {event.totalMembers}</h6>
-                      <h6 className="address-style">Address:</h6>
-                      <h6>{event.street}</h6>
-                      <h6>{event.city}</h6>
-                      <h6>{event.state}, {event.zip}</h6>
+                      <div className="simple-border">
+                        <h6>Instructor Name: {event.instructorFirstName} {event.instructorLastName}</h6>
+                        <h6>Current Gym Membership(*owner's estimate): {event.totalMembers}</h6>
+                      </div>
+                      <div className="simple-border">
+                        <h6 className="address-style">Address:</h6>
+                        <h6>{event.street}</h6>
+                        <h6>{event.city}</h6>
+                        <h6>{event.state}, {event.zip}</h6>
+                      </div>
                     </div>
                   </div>
-                  <a className="link3 link4" onClick={() => this.addOne(event._id)}>
+                  <button className="link3 link4" onClick={() => {this.addOne(event._id)}}>
                   Attend This Open Mat
-                  </a>
+                  </button>
                   </ListItem>
                 ))}
               </List>
@@ -273,7 +276,7 @@ class Articles extends Component {
               contentLabel="Host Open Mat Modal"
               >
                 <button onClick={this.closeModal}>X Close</button>
-                <h2 ref={subtitle => this.subtitle = subtitle}>Host and Open Mat</h2>
+                <h2 ref={subtitle => this.subtitle = subtitle}>Host an Open Mat</h2>
                 <div>
                   <h3>Enter Gym Info Below:</h3>
                 </div>
@@ -336,7 +339,7 @@ class Articles extends Component {
                       value={this.state.typeOfGym}
                       onChange={this.handleInputChange}
                       name="typeOfGym"
-                      placeholder="Gym Type"
+                      placeholder="Gym Name"
                     />
                     <Input
                       value={this.state.date}
@@ -369,14 +372,25 @@ class Articles extends Component {
               <List>
                 {this.state.articles.map(article => (
                   <ListItem key={article._id}>
-                    <DeleteBtn onClick={() => this.deletearticle(article._id)} />
-                    <SaveBtn onClick={() => this.savearticle(article._id, article.title, article.link, article.info, article.img)}/>
-                    <a href={article.link}>
+                  <div className="row">
+                    <a className="article-title" href={article.link}>
                       <strong>
                         {article.title}
                       </strong>
-                      <img alt="articleimg" className="img-responsive center-block" src={article.img}/>
                     </a>
+                    <h6 className='article-info'>{article.info}</h6>
+                  </div>
+                  <div className="row">
+                    <img alt="articleimg" className="img-responsive center-block simple-border" src={article.img}/>
+                  </div>
+                  <div className="row">
+                    <div className="col-xs-6">
+                      <DeleteBtn onClick={() => this.deletearticle(article._id)} />
+                    </div>
+                    <div className="col-xs-6">
+                      <SaveBtn onClick={() => this.savearticle(article._id, article.title, article.link, article.info, article.img)}/>
+                    </div>
+                  </div>
                   </ListItem>
                 ))}
               </List>
@@ -387,19 +401,24 @@ class Articles extends Component {
         
           <Col size="md-6">
             <Card>
-              <h1>Saved Articles</h1>
+              <h1>BJJ News Articles</h1>
               <LoadBtn onClick={() => this.loadsavedarticles()} />
             </Card>
             {this.state.saved.length ? (
               <List>
                 {this.state.saved.map(article => (
                   <ListItem key={article._id}>
-                    <a href={article.link}>
+                  <div className="row">
+                    <a className="article-title" href={article.link}>
                       <strong>
                         {article.title}
                       </strong>
-                      <img alt="other" className="img-responsive center-block" src={article.img}/>
                     </a>
+                    <h6 className='article-info'>{article.info}</h6>
+                  </div>
+                  <div className="row">
+                    <img alt="articleimg" className="img-responsive center-block simple-border" src={article.img}/>
+                  </div>
                   </ListItem>
                 ))}
               </List>
