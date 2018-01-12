@@ -46,6 +46,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  getEvents: function(req, res) {
+    db.Event
+      .find(req.query)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     var article = {};
     request("http://www.graciemag.com/en/", function(err, request, html)
@@ -79,6 +85,12 @@ module.exports = {
   update: function(req, res) {
     db.Article
       .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  addOneToCount: function(req, res) {
+    db.Event
+      .findOneAndUpdate({ _id: req.params.id }, { $inc: { count: 1}}, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

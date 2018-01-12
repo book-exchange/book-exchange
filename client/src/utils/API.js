@@ -33,5 +33,12 @@ export default {
   saveevent: function(eventData) {
     return axios.post("/api/event", eventData);
   },
+  getEvents: function() {
+    return axios.get("/api/event/get");
+  },
+  addOne: function(id) {
+    return axios.get("/api/event/" + id);
+  }
+
 
 };
