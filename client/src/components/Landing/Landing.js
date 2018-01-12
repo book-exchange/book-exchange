@@ -15,7 +15,7 @@ const Landing = () => (
 <Container>
 	<Row>
 		<Col size="xs-12">
-				<Logo style='landingLogo'/>
+				<Logo logo='landingLogo'/>
 				<div className="wrapper">
   					<div className="column cat1">
     					<div className="info">

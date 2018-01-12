@@ -8,9 +8,9 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
-import  Nav from "../../components/Nav";
+// import  Nav from "../../components/Nav";
 import  Landing from "../../components/Landing";
-import  Footer from "../../components/Footer";
+// import  Footer from "../../components/Footer";
 
 class LandingPage extends Component {
 

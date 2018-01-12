@@ -2,14 +2,14 @@ import React, { Component } from "react";
 // import DeleteBtn from "../../components/DeleteBtn";
 // import SaveBtn from "../../components/SaveBtn";
 // import LoadBtn from "../../components/LoadBtn";
-import Jumbotron from "../../components/Jumbotron";
+// import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
+import { Input } from "../../components/Form";
 import  Nav from "../../components/Nav";
-import  Footer from "../../components/Footer";
+// import  Footer from "../../components/Footer";
 import  Card from "../../components/Card";
 
 class Login extends Component {
@@ -34,6 +34,10 @@ class Login extends Component {
         });
   }
 
+  checkEmail = () => {
+
+  }
+
   login = (email, password) =>
   {
     const data = 
@@ -48,21 +52,20 @@ class Login extends Component {
     {
       console.log("this should be data" + result.data)
 
-      if(result.data[0].password === data.password)
+      if(!result.data[0]){
+        console.log("hello");
+        This.setStateErrorMessage('E-mail does not')
+      }
+      else if(result.data[0].password === data.password)
       {
         console.log(result.data);
         sessionStorage.setItem('token', result.data.email);
         window.location='/articles'
       }
-      else if (result.data[0].password !== data.password)
+      else if(result.data[0].password !== data.password)
       {
         This.setStateErrorMessage('Wrong Password')
         console.log(result.data + "Failed");
-
-      }
-      else if (!result.data)
-      {
-        console.log("email does not exist" + result.data)
       }
     })
   }

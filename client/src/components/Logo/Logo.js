@@ -5,7 +5,7 @@ import './Logo.css';
 
 const logo = (props) => (
     <div>
-        <img className={props.style} src={orLogo} alt="ORLogo" />
+        <img className={props.logo} src={orLogo} alt="ORLogo" />
     </div>
 );
 
