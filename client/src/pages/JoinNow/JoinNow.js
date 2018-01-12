@@ -110,13 +110,16 @@ class JoinNow extends Component {
                   name="password"
                   placeholder="Password"
                   type="password"
-                />
-                <FormBtn
-                  // disabled={!(this.state.firstname && this.state.lastname && this.state.city)}
+                />   
+                <a
+                  disabled={!(this.state.email && this.state.password)}
                   onClick={() => this.saveNewUser(this.state.firstname, this.state.lastname, this.state.city, this.state.state, this.state.zip, this.state.belt, this.state.email, this.state.password)}
-                  // to="/articles" 
-                  title="Create New Account"    
-                />
+                  title="Join Now"
+                  className="link link1"
+                  href="/login"
+                >Join Now</a>
+                <br/>
+                <a className="link2" href="/login">Already Registered? Login Here</a>
               </form>
             </Card>
           </Col>

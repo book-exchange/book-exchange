@@ -55,7 +55,7 @@ class Login extends Component {
 
       if(!result.data[0]){
         console.log("hello");
-        This.setStateErrorMessage('E-mail does not exist. Please check E-mail, or Join Nowa.')
+        This.setStateErrorMessage('E-mail does not exist. Please check E-mail, or Join Now.')
       }
       else if(result.data[0].password === data.password)
       {

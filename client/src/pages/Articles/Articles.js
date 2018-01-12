@@ -11,6 +11,7 @@ import { Input, FormBtn } from "../../components/Form";
 import Nav from "../../components/Nav";
 import  Card from "../../components/Card";
 import Modal from 'react-modal';
+import "./Articles.css";
 
 
 // const h1Style = {
@@ -46,8 +47,13 @@ class Articles extends Component {
 
 
   state = {
-    articles: [],
+    user: {
+      email: "",
+      events:[]  
+    },
+    events: [],
     saved:[],
+    articles: [],
     modalIsOpen: false,
     instructorFirstName: "",
     instructorLastName: "",
@@ -62,8 +68,14 @@ class Articles extends Component {
     time:""
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    this.onMount();
+    // this.practiceSetState('poop', 'poopy', 'butt');
+  }
+
+  onMount = () => {
     this.scrapeArticles();
+    this.loadEvents();
   }
 
   // componentDidMount() {
@@ -86,15 +98,39 @@ class Articles extends Component {
         date: this.state.date,
         time: this.state.time
       })
-        .then(this.closeModal())
+        .then(this.endSaveEvent())
         .catch(err => console.log(err));
   }
 
+  // practiceSetState = (input1, input2, input3) => {
+  //   this.setState({
+  //       user: {
+  //           email: input1,
+  //           events:[input2, input3]  
+  //             }
+  //                 });
+  // }
+
+  endSaveEvent = () => {
+    this.closeModal();
+    this.loadEvents();
+  }
 
   loadarticles = () => {
     API.getarticles()
       .then(res =>
         this.setState({ articles: res.data },  
+        function () {
+        console.log(this.state);
+        })
+      )
+      .catch(err => console.log(err));
+  }
+
+  loadEvents = () => {
+    API.getEvents()
+      .then(res =>
+        this.setState({ events: res.data },  
         function () {
         console.log(this.state);
         })
@@ -137,6 +173,13 @@ class Articles extends Component {
     API.scrapeArticles()
   }
 
+  addOne = id => {
+    API.addOne(id)
+    .then(res => this.loadEvents())
+    .catch(err => console.log(err));
+  }
+
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -173,7 +216,6 @@ class Articles extends Component {
   }
 
 
-
   render() {
     return (
       <Container fluid>
@@ -182,13 +224,40 @@ class Articles extends Component {
           <Col size="xs-8">
             <Card>
               <h1 style={h1Style2}>Open Mats in your Area</h1>
-              {this.state.articles.length ? (
+             {this.state.events.length ? (
               <List>
-                <ListItem>
-                </ListItem>
+                {this.state.events.map(event => (
+                  <ListItem key={event._id}>
+                  <div className="row">
+                    <div>
+                      <h4 className="event-title">{event.typeOfGym}</h4>
+                      <h6>Open Mat Date: {event.date} Open Mat Time: {event.time}</h6>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-xs-6">
+                      <div>
+                        <h6 className="attending-title">Grapplers attending this Open Mat: </h6>
+                        <h6 className="attending-count">{event.count}</h6>
+                      </div>
+                    </div>
+                    <div className="col-xs-6">
+                      <h6>Instructor Name: {event.instructorFirstName} {event.instructorLastName}</h6>
+                      <h6>Current Gym Membership(*owner's estimate): {event.totalMembers}</h6>
+                      <h6 className="address-style">Address:</h6>
+                      <h6>{event.street}</h6>
+                      <h6>{event.city}</h6>
+                      <h6>{event.state}, {event.zip}</h6>
+                    </div>
+                  </div>
+                  <a className="link3 link4" onClick={() => this.addOne(event._id)}>
+                  Attend This Open Mat
+                  </a>
+                  </ListItem>
+                ))}
               </List>
               ) : (
-                <h3>No Results to Display</h3>
+              <h3>No Results to Display</h3>
               )}
             </Card>
           </Col>

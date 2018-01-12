@@ -1,0 +1,44 @@
+.event-title{
+    font-family: 'Bangers', cursive;
+    font-size: 1em;
+
+}
+
+.attending-count {
+    font-family: 'Bangers', cursive;
+    font-size: 1.3em;
+}
+
+.attending-title {
+    font-family: 'Bangers', cursive;
+    font-size: .6em;
+}
+
+.address-style {
+
+}
+
+.link3 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    font-family: 'Bangers', cursive;
+    padding: 2%;
+    text-align: center;
+    display: inline-block;
+    font-size: .5em;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.link4 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    margin:0% 
+}
+
+.link4:hover {
+    background-color: #008CBA;
+    color: white;
+}
