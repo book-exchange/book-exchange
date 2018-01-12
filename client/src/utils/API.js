@@ -37,7 +37,7 @@ export default {
     return axios.get("/api/event/get");
   },
   addOne: function(id) {
-    return axios.get("/api/event/" + id);
+    return axios.put("/api/event/" + id);
   }
 
 
