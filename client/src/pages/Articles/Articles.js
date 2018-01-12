@@ -378,6 +378,7 @@ class Articles extends Component {
                         {article.title}
                       </strong>
                     </a>
+                    <h6 className='article-info'>{article.info}</h6>
                   </div>
                   <div className="row">
                     <img alt="articleimg" className="img-responsive center-block simple-border" src={article.img}/>
@@ -413,6 +414,7 @@ class Articles extends Component {
                         {article.title}
                       </strong>
                     </a>
+                    <h6 className='article-info'>{article.info}</h6>
                   </div>
                   <div className="row">
                     <img alt="articleimg" className="img-responsive center-block simple-border" src={article.img}/>
