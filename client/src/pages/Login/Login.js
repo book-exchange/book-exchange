@@ -2,20 +2,21 @@ import React, { Component } from "react";
 // import DeleteBtn from "../../components/DeleteBtn";
 // import SaveBtn from "../../components/SaveBtn";
 // import LoadBtn from "../../components/LoadBtn";
-import Jumbotron from "../../components/Jumbotron";
+// import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
+import { Input } from "../../components/Form";
 import  Nav from "../../components/Nav";
-import  Footer from "../../components/Footer";
+// import  Footer from "../../components/Footer";
 import  Card from "../../components/Card";
 
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    errorMessage: ""
   }
 
 
@@ -27,18 +28,47 @@ class Login extends Component {
     });
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.email && this.state.password) {
-      API.savearticle({
-        email: this.state.email,
-        password: this.state.password,
-        city: this.state.city
-      })
-        .then(res => this.loadarticles())
-        .catch(err => console.log(err));
+  setStateErrorMessage = (message) => {
+        this.setState({
+            errorMessage: message
+        });
+  }
+
+  checkEmail = () => {
+
+  }
+
+  login = (email, password) =>
+  {
+    const data = 
+    {
+      "email":this.state.email,
+      "password":this.state.password
     }
-  };
+
+    const This = this;
+
+    API.login(data).then(function(result)
+    {
+      console.log("this should be data" + result.data)
+
+      if(!result.data[0]){
+        console.log("hello");
+        This.setStateErrorMessage('E-mail does not')
+      }
+      else if(result.data[0].password === data.password)
+      {
+        console.log(result.data);
+        sessionStorage.setItem('token', result.data.email);
+        window.location='/articles'
+      }
+      else if(result.data[0].password !== data.password)
+      {
+        This.setStateErrorMessage('Wrong Password')
+        console.log(result.data + "Failed");
+      }
+    })
+  }
 
   render() {
     return (
@@ -49,6 +79,7 @@ class Login extends Component {
           <Col size="md-4">
             <Card>
               <h1>Login</h1>
+              <h4>{this.state.errorMessage}</h4>
               <form>
                 <Input
                   value={this.state.email}
@@ -61,12 +92,13 @@ class Login extends Component {
                   onChange={this.handleInputChange}
                   name="password"
                   placeholder="Password"
+                  type="password"
                 />
-                <FormBtn
-                  disabled={!(this.state.author && this.state.title)}
-                  onClick={this.handleFormSubmit}
+                <a
+                  disabled={!(this.state.email && this.state.password)}
+                  onClick={() => this.login(this.state.email, this.state.password)}
                   title="Login"
-                />
+                >Login</a>
               </form>
             </Card>
           </Col>

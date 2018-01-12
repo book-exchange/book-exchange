@@ -74,7 +74,7 @@ class Articles extends Component {
   saveNewEvent = (instructorFirstName, instructorLastName, street, city, state, zip, email, totalMembers, typeOfGym, date, time) => {
       API.saveevent({
         //this save article should be changes to save user, new model needs created
-        instructorFirstName: this.state. instructorFirstName,
+        instructorFirstName: this.state.instructorFirstName,
         instructorLastName: this.state.instructorLastName,
         street: this.state.street,
         city: this.state.city,

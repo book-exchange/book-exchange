@@ -23,6 +23,10 @@ export default {
   scrapeArticles: function() {
     return axios.get("/api/scrape");
   },
+  login: function(data)
+  {
+    return axios.get(`api/user/login/${data.email}/${data.password}`);
+  },
   saveuser: function(userData) {
     return axios.post("/api/user", userData);
   },
